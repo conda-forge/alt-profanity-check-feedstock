@@ -1,5 +1,5 @@
 {% set name = "alt-profanity-check" %}
-{% set version = "1.4.1.post1" %}
+{% set version = "1.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/alt-profanity-check-{{ version }}.tar.gz
-  sha256: c2d047c5efc9b1ade239bcbdc7ec4ce62b0ab971acb8b467d13e3eef5eabfe17
+  sha256: 7d9305b885c4373fc17a7aa0d858dc7eb9e60224b11f3ae07f2338ec24f02853
 
 build:
   entry_points:
