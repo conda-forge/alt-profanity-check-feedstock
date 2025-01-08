@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 84e480b330f904062b22dce2806cdf2db978a0e6ad921d33595379dbbcaa16d5
 
 build:
@@ -14,14 +14,15 @@ build:
     - profanity_check=profanity_check.command_line:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - scikit-learn ==1.5.2
     - joblib >=1.4.2
 
@@ -33,6 +34,7 @@ test:
     - profanity_check --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/dimitrismistriotis/alt-profanity-check
