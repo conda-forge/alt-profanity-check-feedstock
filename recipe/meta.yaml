@@ -1,20 +1,20 @@
 {% set name = "alt-profanity-check" %}
-{% set version = "1.5.2" %}
+{% set version = "1.6.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 84e480b330f904062b22dce2806cdf2db978a0e6ad921d33595379dbbcaa16d5
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 35850f409abaac08db7db52bb3408b9a076b5e96940e12e2196e91f545b13d9b
 
 build:
   entry_points:
     - profanity_check=profanity_check.command_line:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -23,7 +23,7 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - scikit-learn ==1.5.2
+    - scikit-learn ==1.6.1
     - joblib >=1.4.2
 
 test:
