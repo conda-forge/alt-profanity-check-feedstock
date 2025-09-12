@@ -1,5 +1,5 @@
 {% set name = "alt-profanity-check" %}
-{% set version = "1.7.1" %}
+{% set version = "1.7.2" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 82bbeaf71872f8ab3846f82ff60c53c7207bdf2d312b336bcd204ab350dc4892
+  sha256: f2569e4cc8dfb1813b384ad59e88c5929216354b68213016acd00d2196357f14
 
 build:
   entry_points:
@@ -24,7 +24,7 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - scikit-learn ==1.7.1
+    - scikit-learn ==1.7.2
     - joblib ==1.5.1
 
 test:
