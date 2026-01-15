@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: alt-profanity-check
-  version: "1.7.2"
+  version: "1.8.0"
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: f2569e4cc8dfb1813b384ad59e88c5929216354b68213016acd00d2196357f14
+  sha256: bdfcd0f9ca205065b2dcf05b5cfb5f4fe2528ebe4b0b4d3c6649334ab8159c82
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
