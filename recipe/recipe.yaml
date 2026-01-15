@@ -3,18 +3,19 @@ schema_version: 1
 
 context:
   name: alt-profanity-check
-  version: "1.7.2"
+  version: "1.8.0"
+  python_min: '3.11'
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: f2569e4cc8dfb1813b384ad59e88c5929216354b68213016acd00d2196357f14
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/alt_profanity_check-${{ version }}.tar.gz
+  sha256: bdfcd0f9ca205065b2dcf05b5cfb5f4fe2528ebe4b0b4d3c6649334ab8159c82
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -28,8 +29,8 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }},<4.0
-    - scikit-learn ==1.7.2
-    - joblib ==1.5.1
+    - scikit-learn ==1.8.0
+    - joblib ==1.5.3
 
 tests:
   - python:
